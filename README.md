@@ -12,9 +12,11 @@ The major topics I learn from this project are listed below:
 - goroutine, channel, non-blocking channel using select
 
 ## Installation
-`git clone https://github.com/HowardOhMyGod/chat_rooms_golang`
-`go get github.com/satori/go.uuid`
-`go install message`
+```
+git clone https://github.com/HowardOhMyGod/chat_rooms_golang
+go get github.com/satori/go.uuid
+go install message
+```
 
 Then, use `go run` or `go build` to run or compile server.go and client.go
 
