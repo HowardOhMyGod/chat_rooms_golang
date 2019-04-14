@@ -80,7 +80,7 @@ func listRoom(rooms *map[uuid.UUID]*Room) string {
 func leaveRoom(rooms *map[uuid.UUID]*Room, roomId uuid.UUID, client Client) {
     room := (*rooms)[roomId]
     delete((*room).clients, client.addr)
-    broadCast(rooms, roomId, client, fmt.Sprintf("%s leaved the room!", client.name))
+    broadCast(rooms, roomId, client, fmt.Sprintf("%s left the room!", client.name))
 
     // check if room is empty
     if len((*room).clients) == 0 {
@@ -124,7 +124,7 @@ func chat(conn net.Conn, rooms *map[uuid.UUID]*Room, roomId uuid.UUID, client Cl
         select {
         case delRoomId:= <- delChan:
             if delRoomId == roomId {
-                message.SendText(conn, "Someone delete this room. Back to lobby!")
+                message.SendText(conn, "Someone deleted this room. Back to lobby!")
                 return
             }
         default:
